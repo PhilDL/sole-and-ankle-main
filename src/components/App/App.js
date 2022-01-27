@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components/macro";
 
 import Header from "../Header";
+import ProductsPage from "../ProductsPage/ProductsPage";
 
 const App = () => {
   const [sortId, setSortId] = React.useState("newest");
@@ -9,7 +10,9 @@ const App = () => {
   return (
     <>
       <Header />
-      <Main>Main content</Main>
+      <Main>
+        <ProductsPage />
+      </Main>
     </>
   );
 };
