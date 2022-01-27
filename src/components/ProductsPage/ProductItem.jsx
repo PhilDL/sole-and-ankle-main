@@ -69,7 +69,7 @@ const ProductItemWrapper = styled.article`
 const Tag = styled.span`
   background-color: var(--bg-color);
   color: var(--text-color);
-  padding: 2px 8px;
+  padding: 2px 10px;
   position: absolute;
   top: 10px;
   right: -8px;
