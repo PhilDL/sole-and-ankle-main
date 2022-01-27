@@ -22,7 +22,11 @@ const CategoriesNavigation = (props) => {
     <CategoriesNavigationWrapper>
       <CategoriesList>
         {MENUS.map((menu) => (
-          <CategoryLink key={menu.id} {...menu}></CategoryLink>
+          <CategoryLink
+            key={menu.id}
+            {...menu}
+            currentlySelected={3}
+          ></CategoryLink>
         ))}
       </CategoriesList>
     </CategoriesNavigationWrapper>
