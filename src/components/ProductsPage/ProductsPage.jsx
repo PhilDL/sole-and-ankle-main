@@ -36,6 +36,7 @@ const ProductsPage = (props) => {
 const ProductsPageWrapper = styled.div`
   display: flex;
   gap: 32px;
+  align-items: baseline;
 `;
 
 const LeftColumn = styled.aside`
@@ -48,6 +49,7 @@ const MainColumn = styled.div`
 
 const Header = styled.header`
   display: flex;
+  align-items: baseline;
 `;
 
 const Title = styled.h2`

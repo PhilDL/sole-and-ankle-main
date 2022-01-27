@@ -87,6 +87,8 @@ const ProductDetails = styled.div`
   display: flex;
   justify-content: space-between;
   color: ${COLORS.gray["900"]};
+  align-items: baseline;
+}
 `;
 const InfoContainer = styled.div`
   display: flex;
