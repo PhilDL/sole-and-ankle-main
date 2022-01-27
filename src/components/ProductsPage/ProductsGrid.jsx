@@ -1,5 +1,4 @@
 import styled from "styled-components/macro";
-import { COLORS, WEIGHTS } from "../../constants";
 import ProductItem from "./ProductItem";
 import SHOES from "../../data";
 

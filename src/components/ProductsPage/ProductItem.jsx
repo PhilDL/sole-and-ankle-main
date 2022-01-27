@@ -1,6 +1,28 @@
 import styled from "styled-components/macro";
+import differenceInDays from "date-fns/differenceInDays";
+
 import { COLORS, WEIGHTS } from "../../constants";
 
+export function newProduct(releaseDate) {
+  return differenceInDays(new Date(), releaseDate) < 30;
+}
+
+const PRODUCT_TAGS = {
+  sale: {
+    text: "Sale",
+    style: {
+      "--bg-color": COLORS.primary,
+      "--text-color": "#fff",
+    },
+  },
+  new: {
+    text: "Just Released!",
+    style: {
+      "--bg-color": COLORS.secondary,
+      "--text-color": "#fff",
+    },
+  },
+};
 const ProductItem = ({
   slug,
   name,
@@ -10,16 +32,23 @@ const ProductItem = ({
   releaseDate,
   numOfColors,
 }) => {
+  let tag = null;
+  if (salePrice && salePrice > 0) {
+    tag = PRODUCT_TAGS["sale"];
+  } else if (newProduct(releaseDate)) {
+    tag = PRODUCT_TAGS["new"];
+  }
   return (
     <ProductItemWrapper>
+      {tag && <Tag style={tag.style}>{tag.text}</Tag>}
       <ProductImg src={imageSrc} alt={name} />
       <ProductDetails>
         <InfoContainer>
-          <ProductName>{name}</ProductName>
+          <ProductName href={`/product/${slug}`}>{name}</ProductName>
           <ProductVariants>{numOfColors} Color</ProductVariants>
         </InfoContainer>
         <PriceContainer>
-          <ProductPrice onSale={salePrice ? true : false}>
+          <ProductPrice salePrice={salePrice ? true : false}>
             ${price / 100}
           </ProductPrice>
           {salePrice && <ProductSalePrice>${salePrice / 100}</ProductSalePrice>}
@@ -35,6 +64,20 @@ const ProductItemWrapper = styled.article`
   display: flex;
   flex-direction: column;
   gap: 14px;
+  position: relative;
+`;
+
+const Tag = styled.span`
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 2px 8px;
+  position: absolute;
+  top: 10px;
+  right: -8px;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 32px;
+  border-radius: 4px;
 `;
 const ProductImg = styled.img`
   width: 100%;
@@ -54,17 +97,22 @@ const PriceContainer = styled.div`
   flex-direction: column;
 `;
 
-const ProductName = styled.h3`
+const ProductName = styled.a`
   font-weight: ${WEIGHTS.medium};
+  text-decoration: none;
+  color: inherit;
   font-size: 1.125rem;
   margin: 0;
+  &:hover {
+    color: ${COLORS.primary};
+  }
 `;
 const ProductVariants = styled.p`
   font-weight: ${WEIGHTS.normal};
 `;
 
 const ProductPrice = styled.span`
-  text-decoration: ${(props) => (props.onSale ? "line-through" : "none")};
+  text-decoration: ${(props) => (props.salePrice ? "line-through" : "none")};
 `;
 const ProductSalePrice = styled.span`
   color: ${COLORS.primary};

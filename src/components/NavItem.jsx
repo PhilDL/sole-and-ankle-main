@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import { COLORS, WEIGHTS } from "../constants";
+import { COLORS } from "../constants";
 
 const NavItem = ({ active, children }) => {
   return (

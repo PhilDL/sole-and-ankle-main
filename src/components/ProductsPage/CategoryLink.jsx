@@ -21,7 +21,8 @@ const Link = styled.a`
     props.currentlySelected === props.id ? COLORS.primary : "inherit"};
   font-weight: ${WEIGHTS.medium};
   &:hover {
-    color: ${COLORS.primary};
+    color: ${(props) =>
+      props.currentlySelected === props.id ? "inherit" : COLORS.primary};
   }
 `;
 

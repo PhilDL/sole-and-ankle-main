@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import { COLORS, WEIGHTS } from "../constants";
+import { COLORS } from "../constants";
 import Icon from "./Icon";
 import SearchInput from "./SearchInput";
 
@@ -10,7 +10,9 @@ const SuperHeader = (props) => {
       <RightNav>
         <SearchInput type="search" />
         <HelpLink href="/help">Help</HelpLink>
-        <Icon id="shopping-bag" size={24} color={COLORS.gray["300"]} />
+        <ShoppingCartLink href="/shop/cart">
+          <Icon id="shopping-bag" size={24} color={COLORS.gray["300"]} />
+        </ShoppingCartLink>
       </RightNav>
     </SuperHeaderWrapper>
   );
@@ -19,13 +21,14 @@ const SuperHeader = (props) => {
 const SuperHeaderWrapper = styled.div`
   background-color: ${COLORS.gray["900"]};
   height: 40px;
-  color: ${COLORS.gray["300"]};
+  color: white;
   display: flex;
   align-items: center;
   padding: 0 32px;
 `;
 
 const RightNav = styled.nav`
+  color: ${COLORS.gray["300"]};
   margin-left: auto;
   display: flex;
   align-items: center;
@@ -35,5 +38,16 @@ const RightNav = styled.nav`
 const HelpLink = styled.a`
   text-decoration: none;
   color: inherit;
+  &:hover {
+    color: white;
+  }
+`;
+
+export const ShoppingCartLink = styled.a`
+  &:hover {
+    svg {
+      stroke: white;
+    }
+  }
 `;
 export default SuperHeader;

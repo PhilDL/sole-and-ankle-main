@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import { COLORS, WEIGHTS } from "../constants";
+import { COLORS } from "../constants";
 import Icon from "./Icon";
 
 const SearchInput = (props) => {
@@ -15,6 +15,10 @@ const SearchInputWrapper = styled.label`
   background-color: ${COLORS.gray["900"]};
   /* background-color: yellow; */
   position: relative;
+  color: ${COLORS.gray["300"]};
+  &:hover {
+    color: white;
+  }
 `;
 
 const SearchIcon = styled(Icon)`
@@ -29,7 +33,7 @@ const Input = styled.input`
   padding-left: 24px;
   line-height: 22px;
   border-bottom: 1px solid ${COLORS.gray["300"]};
-  color: ${COLORS.gray["300"]};
   outline-offset: 4px;
+  color: inherit;
 `;
 export default SearchInput;

@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import { COLORS, WEIGHTS } from "../../constants";
+import { WEIGHTS } from "../../constants";
 import CategoriesNavigation from "./CategoriesNavigation";
 import { Breadcrumbs, Crumb } from "../Breadcrumbs";
 import Spacer from "../Spacer";

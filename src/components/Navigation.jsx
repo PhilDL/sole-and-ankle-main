@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import { COLORS, WEIGHTS } from "../constants";
+import { COLORS } from "../constants";
 import Logo from "./Logo";
 import NavItem from "./NavItem";
 

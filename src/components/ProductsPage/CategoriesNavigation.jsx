@@ -1,5 +1,4 @@
 import styled from "styled-components/macro";
-import { COLORS, WEIGHTS } from "../../constants";
 import CategoryLink from "./CategoryLink";
 
 const MENUS = [
