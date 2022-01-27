@@ -59,8 +59,7 @@ const ProductItem = ({
 };
 
 const ProductItemWrapper = styled.article`
-  flex: 1;
-  flex-basis: 340px;
+  flex: 1 1 340px;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -88,7 +87,6 @@ const ProductDetails = styled.div`
   justify-content: space-between;
   color: ${COLORS.gray["900"]};
   align-items: baseline;
-}
 `;
 const InfoContainer = styled.div`
   display: flex;
@@ -114,7 +112,10 @@ const ProductVariants = styled.p`
 `;
 
 const ProductPrice = styled.span`
-  text-decoration: ${(props) => (props.salePrice ? "line-through" : "none")};
+  text-decoration: ${(props) =>
+    props.salePrice > 0 ? "line-through" : "none"};
+  color: ${(props) =>
+    props.salePrice > 0 ? COLORS.gray["700"] : COLORS.gray["900"]};
 `;
 const ProductSalePrice = styled.span`
   color: ${COLORS.primary};
